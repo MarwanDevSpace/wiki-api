@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wiki-API Static</title>
+  <title>Wiki-API Brain Engine</title>
   <link rel="stylesheet" href="style.css"/>
+  <script src="https://kit.fontawesome.com/5f91f6c9f0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Wiki-API Modules</h1>
-    <ul>
-      <li><a href="?module=Moduleid1">Moduleid1</a></li>
-    </ul>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Modules</h2>
+      <ul id="modules-list"></ul>
+    </aside>
 
-    <div id="editor-section" class="hidden">
-      <h2 id="module-title"></h2>
-      <textarea id="editor"></textarea>
-      <button id="download">Download JSON</button>
-    </div>
+    <!-- Main content -->
+    <main class="content">
+      <div class="header">
+        <h2 id="module-title">Select a module</h2>
+        <button id="copy-url" class="copy-btn" title="Copy link"><i class="fas fa-link"></i></button>
+      </div>
+      <pre id="code-editor" class="editor">// Module JSON will appear here</pre>
+    </main>
   </div>
 
   <script src="script.js"></script>
