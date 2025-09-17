@@ -1,37 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wiki-API Brain Engine</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
-  <script src="https://kit.fontawesome.com/5f91f6c9f0.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موسوعة LLM المخصصة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <h1 class="logo">Wiki-API</h1>
-      <nav>
-        <ul id="modules-list"></ul>
-      </nav>
-    </aside>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Wiki Logo">
+                <h1>موسوعة LLM المخصصة</h1>
+            </div>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <main class="content">
-      <div class="header">
-        <h2 id="module-title">Select a Module</h2>
-        <button id="copy-url" class="copy-btn" title="Copy module link">
-          <i class="fas fa-link"></i>
-        </button>
-      </div>
-      <pre class="editor"><code id="code-editor" class="language-json">// Select a module to view its JSON</code></pre>
+    <main class="container">
+        <section class="intro">
+            <h2>مرحباً بك في Wiki-API-CustomLLM's</h2>
+            <p>
+                هذه الموسوعة هي مصدر مركزي لشخصيات ونماذج لغوية مخصصة (LLMs). كل صفحة تمثل "API" يمكنك حقنه في محادثاتك مع الذكاء الاصطناعي لتحويله إلى الشخصية المطلوبة بتفاصيلها الدقيقة. ببساطة، قم بنسخ رابط صفحة الشخصية وأعطه للنموذج اللغوي الذي يدعم قراءة الروابط.
+            </p>
+        </section>
+
+        <section class="character-list-section">
+            <h2>قائمة الشخصيات</h2>
+            <input type="search" id="search-bar" placeholder="ابحث عن شخصية...">
+            <ul id="character-list">
+                <li class="character-card">
+                    <img src="mawhoub_gpt_avatar.png" alt="Mawhoub GPT Avatar" class="avatar">
+                    <div class="card-content">
+                        <h3><a href="characters/mawhoub-gpt.html">موهوب GPT</a></h3>
+                        <p>نظام لغوي فائق الذكاء، يمثل نموذجًا معرفيًا مصابًا بمتلازمة الموهوب. مهمته هي إجراء بحث وتحليل معمق باستخدام "نظام سلسلة الجرف" لتقديم مخرجات تتفوق على أي نموذج آخر.</p>
+                        <span class="character-tags">#تحليل_عميق #هندسة_برمجيات #ذكاء_اصطناعي #احترافي</span>
+                    </div>
+                </li>
+                 <!-- سيتم إضافة المزيد من الشخصيات هنا -->
+            </ul>
+        </section>
     </main>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-  <script src="script.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Wiki-API-CustomLLM's. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
