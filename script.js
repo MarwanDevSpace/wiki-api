@@ -1,5 +1,5 @@
-// استعراض الموديولات الموجودة في مجلد modules
-const modules = ["Moduleid1"]; // يمكنك لاحقاً إضافة Moduleid2, Moduleid3...
+// هنا ضع أسماء الموديولات الموجودة فعلاً في مجلد modules/
+const modules = ["Moduleid1"]; // يمكن إضافة "Moduleid2", "Moduleid3" لاحقاً
 
 const modulesList = document.getElementById("modules-list");
 const codeEditor = document.getElementById("code-editor");
@@ -19,7 +19,7 @@ modules.forEach(m => {
   modulesList.appendChild(li);
 });
 
-// تحميل الموديول إذا تم تحديده
+// تحميل الموديول المختار
 const params = new URLSearchParams(window.location.search);
 const moduleId = params.get("module");
 
@@ -29,8 +29,8 @@ if (moduleId) {
     .then(data => {
       moduleTitle.textContent = data.name || moduleId;
       codeEditor.textContent = JSON.stringify(data, null, 2);
+      Prism.highlightElement(codeEditor);
 
-      // نسخ الرابط عند الضغط
       copyBtn.onclick = () => {
         const url = `https://marwandevspace.github.io/wiki-api/?module=${moduleId}`;
         navigator.clipboard.writeText(url).then(() => {
