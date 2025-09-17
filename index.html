@@ -5,26 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wiki-API Brain Engine</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/5f91f6c9f0.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <h2>Modules</h2>
-      <ul id="modules-list"></ul>
+      <h1 class="logo">Wiki-API</h1>
+      <nav>
+        <ul id="modules-list"></ul>
+      </nav>
     </aside>
 
-    <!-- Main content -->
+    <!-- Main Content -->
     <main class="content">
       <div class="header">
-        <h2 id="module-title">Select a module</h2>
-        <button id="copy-url" class="copy-btn" title="Copy link"><i class="fas fa-link"></i></button>
+        <h2 id="module-title">Select a Module</h2>
+        <button id="copy-url" class="copy-btn" title="Copy module link">
+          <i class="fas fa-link"></i>
+        </button>
       </div>
-      <pre id="code-editor" class="editor">// Module JSON will appear here</pre>
+      <pre class="editor"><code id="code-editor" class="language-json">// Select a module to view its JSON</code></pre>
     </main>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
