@@ -1,47 +1,46 @@
-// هنا ضع أسماء الموديولات الموجودة فعلاً في مجلد modules/
-const modules = ["Moduleid1"]; // يمكن إضافة "Moduleid2", "Moduleid3" لاحقاً
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle Raw API View
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('raw') === 'true') {
+        const content = document.querySelector('.character-content');
+        if (content) {
+            const rawText = content.innerText;
+            document.body.innerHTML = ''; // Clear the body
+            const pre = document.createElement('pre');
+            pre.textContent = rawText;
+            pre.style.whiteSpace = 'pre-wrap';
+            pre.style.wordWrap = 'break-word';
+            pre.style.padding = '1rem';
+            pre.style.fontFamily = "'Cairo', sans-serif";
+            pre.style.fontSize = '16px';
+            document.body.appendChild(pre);
+            document.documentElement.setAttribute('dir', 'rtl');
+            document.documentElement.setAttribute('lang', 'ar');
+        }
+        return; // Stop further script execution
+    }
 
-const modulesList = document.getElementById("modules-list");
-const codeEditor = document.getElementById("code-editor");
-const moduleTitle = document.getElementById("module-title");
-const copyBtn = document.getElementById("copy-url");
+    // Handle search bar on main page
+    const searchBar = document.getElementById('search-bar');
+    const characterList = document.getElementById('character-list');
 
-// بناء القائمة الجانبية
-modules.forEach(m => {
-  const li = document.createElement("li");
-  const a = document.createElement("a");
-  a.href = `?module=${m}`;
-  a.textContent = m;
-  if (new URLSearchParams(window.location.search).get("module") === m) {
-    a.classList.add("active");
-  }
-  li.appendChild(a);
-  modulesList.appendChild(li);
-});
+    if (searchBar && characterList) {
+        const characters = Array.from(characterList.getElementsByTagName('li'));
 
-// تحميل الموديول المختار
-const params = new URLSearchParams(window.location.search);
-const moduleId = params.get("module");
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
 
-if (moduleId) {
-  fetch(`modules/${moduleId}.json`)
-    .then(res => res.json())
-    .then(data => {
-      moduleTitle.textContent = data.name || moduleId;
-      codeEditor.textContent = JSON.stringify(data, null, 2);
-      Prism.highlightElement(codeEditor);
+            characters.forEach(character => {
+                const characterName = character.querySelector('h3 a').textContent.toLowerCase();
+                const characterDesc = character.querySelector('p').textContent.toLowerCase();
+                const characterTags = character.querySelector('.character-tags').textContent.toLowerCase();
 
-      copyBtn.onclick = () => {
-        const url = `https://marwandevspace.github.io/wiki-api/?module=${moduleId}`;
-        navigator.clipboard.writeText(url).then(() => {
-          copyBtn.innerHTML = "<i class='fas fa-check'></i>";
-          setTimeout(() => {
-            copyBtn.innerHTML = "<i class='fas fa-link'></i>";
-          }, 1500);
+                if (characterName.includes(searchTerm) || characterDesc.includes(searchTerm) || characterTags.includes(searchTerm)) {
+                    character.style.display = 'flex';
+                } else {
+                    character.style.display = 'none';
+                }
+            });
         });
-      };
-    })
-    .catch(() => {
-      codeEditor.textContent = "// Module not found!";
-    });
-}
+    }
+});
