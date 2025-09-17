@@ -1,10 +1,11 @@
+/* Layout */
 body {
   margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
   background-color: #0d1117;
   color: #c9d1d9;
-  display: flex;
   height: 100vh;
+  display: flex;
 }
 
 .layout {
@@ -14,36 +15,41 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 220px;
+  width: 250px;
   background-color: #161b22;
-  padding: 16px;
   border-right: 1px solid #30363d;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
-.sidebar h2 {
-  font-size: 1.2em;
-  margin-bottom: 12px;
+.logo {
+  font-size: 1.5em;
   color: #58a6ff;
+  margin-bottom: 20px;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
-  margin: 6px 0;
+  margin-bottom: 8px;
 }
 
 .sidebar a {
   color: #c9d1d9;
   text-decoration: none;
-  padding: 6px 8px;
-  border-radius: 6px;
   display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
-.sidebar a:hover, .sidebar a.active {
+.sidebar a:hover,
+.sidebar a.active {
   background-color: #238636;
   color: white;
 }
@@ -53,7 +59,8 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .header {
@@ -76,13 +83,11 @@ body {
 
 /* Code editor */
 .editor {
-  margin-top: 12px;
-  padding: 16px;
-  background-color: #161b22;
+  margin-top: 20px;
+  background-color: #161b22 !important;
   border: 1px solid #30363d;
   border-radius: 8px;
+  padding: 16px;
   overflow-x: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  flex-grow: 1;
+  font-size: 0.9em;
 }
