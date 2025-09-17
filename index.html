@@ -13,7 +13,6 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="Wiki Logo">
                 <h1>موسوعة LLM المخصصة</h1>
             </div>
             <nav>
@@ -26,24 +25,32 @@
         <section class="intro">
             <h2>مرحباً بك في Wiki-API-CustomLLM's</h2>
             <p>
-                هذه الموسوعة هي مصدر مركزي لشخصيات ونماذج لغوية مخصصة (LLMs). كل صفحة تمثل "API" يمكنك حقنه في محادثاتك مع الذكاء الاصطناعي لتحويله إلى الشخصية المطلوبة بتفاصيلها الدقيقة. ببساطة، قم بنسخ رابط صفحة الشخصية وأعطه للنموذج اللغوي الذي يدعم قراءة الروابط.
+                هذه الموسوعة هي مصدر مركزي لشخصيات ونماذج لغوية مخصصة (LLMs). كل صفحة تمثل "API" يمكنك حقنه في محادثاتك مع الذكاء الاصطناعي. استخدم زر "RAW" للحصول على رابط الـ JSON مباشرة.
             </p>
         </section>
 
         <section class="character-list-section">
             <h2>قائمة الشخصيات</h2>
             <input type="search" id="search-bar" placeholder="ابحث عن شخصية...">
-            <ul id="character-list">
-                <li class="character-card">
-                    <img src="mawhoub_gpt_avatar.png" alt="Mawhoub GPT Avatar" class="avatar">
-                    <div class="card-content">
-                        <h3><a href="characters/mawhoub-gpt.html">موهوب GPT</a></h3>
-                        <p>نظام لغوي فائق الذكاء، يمثل نموذجًا معرفيًا مصابًا بمتلازمة الموهوب. مهمته هي إجراء بحث وتحليل معمق باستخدام "نظام سلسلة الجرف" لتقديم مخرجات تتفوق على أي نموذج آخر.</p>
-                        <span class="character-tags">#تحليل_عميق #هندسة_برمجيات #ذكاء_اصطناعي #احترافي</span>
-                    </div>
-                </li>
-                 <!-- سيتم إضافة المزيد من الشخصيات هنا -->
-            </ul>
+            <table class="character-table">
+                <thead>
+                    <tr>
+                        <th>الشخصية</th>
+                        <th>الوصف</th>
+                        <th>Module ID</th>
+                        <th>API</th>
+                    </tr>
+                </thead>
+                <tbody id="character-list">
+                     <tr class="character-item">
+                        <td data-label="الشخصية"><a href="character.html?name=mawhoub-gpt">موهوب GPT</a></td>
+                        <td data-label="الوصف">نظام لغوي فائق الذكاء، يمثل نموذجًا معرفيًا مصابًا بمتلازمة الموهوب. مهمته هي إجراء بحث وتحليل معمق.</td>
+                        <td data-label="Module ID"><code>mawhoub-gpt.json</code></td>
+                        <td data-label="API"><a href="characters/mawhoub-gpt.json" class="button-raw" target="_blank" rel="noopener noreferrer">RAW</a></td>
+                    </tr>
+                     <!-- سيتم إضافة المزيد من الشخصيات هنا -->
+                </tbody>
+            </table>
         </section>
     </main>
 
